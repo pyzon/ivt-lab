@@ -8,11 +8,15 @@ import static org.mockito.Mockito.*;
 
 public class GT4500Test {
 
-  private GT4500 mockShip;
+  private GT4500 ship;
+  private TorpedoStore mockPrimaryTorpedoStore;
+  private TorpedoStore mockSecondaryTorpedoStore;
 
   @BeforeEach
   public void init(){
-    this.mockShip= mock(GT4500.class);
+    mockPrimaryTorpedoStore = mock(TorpedoStore.class);
+    mockSecondaryTorpedoStore = mock(TorpedoStore.class);
+    ship = new GT4500(mockPrimaryTorpedoStore, mockSecondaryTorpedoStore);
   }
 
   @Test
@@ -20,7 +24,7 @@ public class GT4500Test {
     // Arrange
 
     // Act
-    boolean result = mockShip.fireTorpedo(FiringMode.SINGLE);
+    boolean result = ship.fireTorpedo(FiringMode.SINGLE);
 
     // Assert
     assertEquals(true, result);
@@ -31,7 +35,7 @@ public class GT4500Test {
     // Arrange
 
     // Act
-    boolean result = mockShip.fireTorpedo(FiringMode.ALL);
+    boolean result = ship.fireTorpedo(FiringMode.ALL);
 
     // Assert
     assertEquals(true, result);
