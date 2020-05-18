@@ -8,11 +8,11 @@ import static org.mockito.Mockito.*;
 
 public class GT4500Test {
 
-  private GT4500 ship;
+  private GT4500 mockShip;
 
   @BeforeEach
   public void init(){
-    this.ship = new GT4500();
+    this.mockShip= mock(GT4500.class);
   }
 
   @Test
@@ -20,7 +20,7 @@ public class GT4500Test {
     // Arrange
 
     // Act
-    boolean result = ship.fireTorpedo(FiringMode.SINGLE);
+    boolean result = mockShip.fireTorpedo(FiringMode.SINGLE);
 
     // Assert
     assertEquals(true, result);
@@ -31,7 +31,7 @@ public class GT4500Test {
     // Arrange
 
     // Act
-    boolean result = ship.fireTorpedo(FiringMode.ALL);
+    boolean result = mockShip.fireTorpedo(FiringMode.ALL);
 
     // Assert
     assertEquals(true, result);
