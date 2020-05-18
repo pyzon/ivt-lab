@@ -22,6 +22,12 @@ public class GT4500Test {
   @Test
   public void fireTorpedo_Single_Success(){
     // Arrange
+    when(mockPrimaryTorpedoStore.fire(1)).thenReturn(true);
+    when(mockSecondaryTorpedoStore.fire(1)).thenReturn(true);
+    when(mockPrimaryTorpedoStore.isEmpty()).thenReturn(false);
+    when(mockSecondaryTorpedoStore.isEmpty()).thenReturn(false);
+    when(mockPrimaryTorpedoStore.getTorpedoCount()).thenReturn(10);
+    when(mockSecondaryTorpedoStore.getTorpedoCount()).thenReturn(10);
 
     // Act
     boolean result = ship.fireTorpedo(FiringMode.SINGLE);
@@ -33,6 +39,12 @@ public class GT4500Test {
   @Test
   public void fireTorpedo_All_Success(){
     // Arrange
+    when(mockPrimaryTorpedoStore.fire(1)).thenReturn(true);
+    when(mockSecondaryTorpedoStore.fire(1)).thenReturn(true);
+    when(mockPrimaryTorpedoStore.isEmpty()).thenReturn(false);
+    when(mockSecondaryTorpedoStore.isEmpty()).thenReturn(false);
+    when(mockPrimaryTorpedoStore.getTorpedoCount()).thenReturn(10);
+    when(mockSecondaryTorpedoStore.getTorpedoCount()).thenReturn(10);
 
     // Act
     boolean result = ship.fireTorpedo(FiringMode.ALL);
